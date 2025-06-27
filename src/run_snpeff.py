@@ -36,7 +36,7 @@ def run_snpeff(genome_id, vcf, output_vcf, snpeff_dir):
 
     with open(output_vcf, "w") as out:
         subprocess.run(
-            ["java", "-Xmx4g", "-jar", "snpEff.jar", "-no-intergenic", "-no-upstream", "-no-downstream", "-ud", "5", genome_id, vcf_path],
+            ["java", "-Xmx4g", "-jar", "snpEff.jar", "-no-intergenic", "-ud", "5", genome_id, vcf_path],
             cwd=snpeff_dir,
             stdout=out,
             check=True
