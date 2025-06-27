@@ -5,7 +5,7 @@ This workflow is intended to take reference-based variant calls, along with the 
 ## Inputs:
 - A vcf file produced by a standard small variant calling tool, such as Freebayes, DeepVariant, or GATK HaplotypeCaller
 - The reference fasta file used to generate the vcf  
-- A gff file containing annotations for the reference (adhereing to gff3 standards - see [here](http://useast.ensembl.org/info/website/upload/gff3.html))
+- A gff file containing annotations for the reference (adhering to gff3 standards - see [here](http://useast.ensembl.org/info/website/upload/gff3.html))
 
 ## Outputs:
 - `outputs/variants.ann.vcf`: a vcf file with SnpEff annotations (appending to the INFO field of each annotated variant call as an ANN string [see SnpEff documentation for more information])
