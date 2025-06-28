@@ -15,7 +15,7 @@ This workflow is intended to take reference-based variant calls, along with the 
 	- `REF`: the allele at POS in the reference sequence
 	- `ALT`: the variant allele called at POS
 	- `QUAL`: the quality of the variant call (see documentation for variant caller used to generate vcf for more information on interpretation)
-annotation: the SnpEff-predicted variant effect (e.g., missense_variant, frameshift_variant, etc; see SnpEff documentation on the ANN field for more information)
+  	- `annotation`: the SnpEff-predicted variant effect (e.g., missense_variant, frameshift_variant, etc; see SnpEff documentation on the ANN field for more information)
 	- `gene_id`: the gene identifier associated with the annotation (see SnpEff documentation on the ANN field for more information)
 	- `feature_id`: the identifier of the feature (usually a transcript) associated with the annotation (see SnpEff documentation on the ANN field for more information)
 	- `biotype`: the biotype of the transcript (e.g., coding) associated with the annotation (see SnpEff documentation on the ANN field for more information)
