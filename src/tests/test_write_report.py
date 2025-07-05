@@ -54,6 +54,7 @@ def ann_description() -> str:
 
 @pytest.fixture(scope="module")
 def ann_fields(ann_description):
+    """Return a list of annotation field names parsed from a mock VCF header."""
     header = _Header(ann_description)
     return parse_ann_header(header)
 
@@ -61,6 +62,7 @@ def ann_fields(ann_description):
 ## unit‑tests for parse_ann_header
 
 def test_parse_ann_header_success(ann_description):
+    """Should raise if parse_ann_header incorrectly parses a valid ANN description."""
     header = _Header(ann_description)
     fields = parse_ann_header(header)
     assert fields == [
@@ -83,6 +85,7 @@ def test_parse_ann_header_missing_ann_field():
 ## unit‑tests for extract_snpeff_annotations
 
 def test_extract_snpeff_annotations_single_alt(ann_fields):
+    """Should raise if extract_snpeff_annotations incorrectly parses annotation string."""
     annotations = [
         # Allele|Annotation|Gene_ID|Feature_ID|Transcript_BioType|HGVS.p
         "A|missense_variant|gene1|tx1|protein_coding|p.Gly100Arg"
@@ -107,7 +110,7 @@ def test_extract_snpeff_annotations_single_alt(ann_fields):
     assert row["consequence"] == "p.Gly100Arg"
 
 def test_extract_snpeff_annotations_multi_alt(ann_fields):
-    """Ensure each ALT allele gets its corresponding annotation row."""
+    """Should raise if each ALT allele in a multi-allelic variant call doesn't get its own annotation row."""
     annotations = [
         # ALT A annotation
         "A|missense_variant|gene1|tx1|protein_coding|p.Gly100Arg",
