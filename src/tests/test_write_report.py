@@ -31,7 +31,7 @@ class _Record:
         alts: list[str],
         qual: float,
         annotations: list[str],
-    ) -> None:
+    ):
         self.chrom = chrom
         self.pos = pos
         self.ref = ref
@@ -110,7 +110,7 @@ def test_extract_snpeff_annotations_single_alt(ann_fields):
     assert row["consequence"] == "p.Gly100Arg"
 
 def test_extract_snpeff_annotations_multi_alt(ann_fields):
-    """Should raise if each ALT allele in a multi-allelic variant call doesn't get its own annotation row."""
+    """Should raise if each ALT allele in a multi-allelic variant call doesn't get its own correctly-parsed annotation row."""
     annotations = [
         # ALT A annotation
         "A|missense_variant|gene1|tx1|protein_coding|p.Gly100Arg",
