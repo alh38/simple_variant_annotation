@@ -12,6 +12,7 @@ def parse_ann_header(header):
     return fields_line.split('|')
 
 def extract_snpeff_annotations(record, ann_fields):
+    """Extract up to one SnpEff annotation per variant allele"""
     results = []
     for alt in record.alts:
         matching_parts = None
@@ -21,7 +22,7 @@ def extract_snpeff_annotations(record, ann_fields):
             parts = ann.split("|")
             if parts and parts[0] == alt:
                 matching_parts = parts
-                break                 # stop once we’ve found the right ANN
+                break # stop once we’ve found one ANN for the variant allele
 
         if matching_parts is None:
             continue
